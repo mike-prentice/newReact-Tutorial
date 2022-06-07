@@ -1,0 +1,25 @@
+{
+  "name": "adopt-me",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000n\u0000e\u0000w\u0000R\u0000e\u0000a\u0000c\u0000t\u0000-\u0000T\u0000u\u0000t\u0000o\u0000r\u0000i\u0000a\u0000l\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write \"src/**/*.{js,jsx}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mike-prentice/newReact-Tutorial.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mike-prentice/newReact-Tutorial/issues"
+  },
+  "homepage": "https://github.com/mike-prentice/newReact-Tutorial#readme",
+  "devDependencies": {
+    "eslint": "^8.8.0",
+    "eslint-config-prettier": "^8.3.0",
+    "prettier": "^2.6.2"
+  }
+}
