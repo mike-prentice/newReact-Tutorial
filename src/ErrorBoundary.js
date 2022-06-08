@@ -1,5 +1,5 @@
 import { Component } from 'react'; //error boundaries must be class components!!
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 class ErrorBoundary extends Component {
     state = { hasError: false, redirect: false };
