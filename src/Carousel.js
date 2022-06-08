@@ -10,7 +10,7 @@ class Carousel extends Component {
     };
 
     handleIndexClick = (event) => { //dont have to use bind for events if using class properties instead of constructor
-        this.setState({active: +event.target.dataset.index,}) //+ converts index to a number, like parseInt()
+        this.setState({active: +event.target.dataset.index,}) //+ converts index to a number, like parseInt()  (javascript function)
     }
 
     render() {
