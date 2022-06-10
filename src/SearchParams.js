@@ -29,14 +29,18 @@ const SearchParams = () => {
     }
 
   return (
-    <div className="search-params">
-          <form onSubmit={(e) => {
+    <div className="my-0 mx-auto w-11/12">
+      <form
+        className="p-10 mb-10 rounded-lg bg-gray-200 shadow-lg flex flex-col justify-center items-center"
+        onSubmit={(e) => {
               e.preventDefault();
           requestPets();
       }}>
         <label htmlFor="location">
           Location
           <input
+            type="text"
+            className="w-60 mb-5  block"
             id="location"
             value={location}
             placeholder="Location"
@@ -46,6 +50,7 @@ const SearchParams = () => {
         <label htmlFor="animal">
           Animal
           <select
+             className="w-60 mb-5  block"
             id="animal"
             value={animal}
             onChange={(e) => {
@@ -68,6 +73,7 @@ const SearchParams = () => {
         <label htmlFor="breed">
           Breed
           <select
+             className="w-60 mb-5 block disabled: opacity-50"
             id="breed"
             value={breed}
             onChange={(e) => {
@@ -88,6 +94,7 @@ const SearchParams = () => {
         <label htmlFor="theme">
           Theme
           <select
+             className="w-60 mb-5  block"
             value={theme}
             onChange={(e) => { setTheme(e.target.value); }}
             onBlur={(e) => { setTheme(e.target.value) }}

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Carousel from "./Carousel";
 import ErrorBoundary from "./ErrorBoundary";
 import ThemeContext from "./ThemeContext";
+import Modal from "./Modal";
 
 class Details extends Component {
   // constructor(props) { //always create constructor first when  creating a class component. Props come from parent (App)
@@ -11,7 +12,7 @@ class Details extends Component {
   //     this.state = {loading: true}; //set state
   // }
 
-  state = { loading: true }; //after babel classs properties proposal
+  state = { loading: true, showModal: false }; //after babel classs properties proposal
 
   async componentDidMount() {
     const res = await fetch(
@@ -21,7 +22,9 @@ class Details extends Component {
     const json = await res.json();
 
     this.setState({ loading: false, ...json.pets[0] });
-  }
+    }
+    
+    toggleModal = () => {this.setState({showModal: !this.state.showModal})}
 
   render() {
     //render statement must be present in a class component
@@ -29,7 +32,7 @@ class Details extends Component {
       return <h2>loading...</h2>;
     }
 
-    const { animal, breed, city, state, description, name, images } =
+    const { animal, breed, city, state, description, name, images, showModal } =
       this.state;
 
     return (
@@ -40,13 +43,25 @@ class Details extends Component {
           <h2>{`${animal} - ${breed} - ${city}, ${state}`}</h2>
           <ThemeContext.Consumer>
             {([theme]) => (
-                        <button style={{ backgroundColor: theme } }>
+                        <button onClick= {this.toggleModal} style={{ backgroundColor: theme } }>
                 Adopt {name}
               </button>
             )}
           </ThemeContext.Consumer>
 
-          <p>{description}</p>
+                <p>{description}</p>
+                {
+                    showModal ? (<Modal>
+                        <div>
+                            <h1>Would you like to adopt {name}?</h1>
+                            <div className="buttons">
+                            <a href="https://bit.ly/pet-adopt">Yes</a>
+                                <button onClick={this.toggleModal}>No</button>
+                                </div>
+                        </div>
+                    </Modal>
+                    ) : null  //react will render nothing if passed null
+                }
         </div>
       </div>
     );
